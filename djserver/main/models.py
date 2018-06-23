@@ -12,7 +12,7 @@ class City(models.Model):
     name = models.CharField(max_length=100)
     desc = models.TextField()
     state = models.ForeignKey(
-        State, related_name='state', on_delete=models.CASCADE)
+        State, related_name='cities', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

@@ -1,0 +1,52 @@
+[
+  {
+    "model": "main.project",
+    "pk": 1,
+    "fields": {
+      "name": "Web"
+    }
+  },
+  {
+    "model": "main.project",
+    "pk": 2,
+    "fields": {
+      "name": "Mobile"
+    }
+  },
+  {
+    "model": "main.task",
+    "pk": 1,
+    "fields": {
+      "name": "Learn Django",
+      "completed": false,
+      "project": 1
+    }
+  },
+  {
+    "model": "main.task",
+    "pk": 2,
+    "fields": {
+      "name": "Learn Server Side GraphQL",
+      "completed": false,
+      "project": 1
+    }
+  },
+  {
+    "model": "main.task",
+    "pk": 3,
+    "fields": {
+      "name": "Learn Android",
+      "completed": false,
+      "project": 2
+    }
+  },
+  {
+    "model": "main.task",
+    "pk": 4,
+    "fields": {
+      "name": "Learn Mobile Side GraphQL",
+      "completed": false,
+      "project": 2
+    }
+  }
+]

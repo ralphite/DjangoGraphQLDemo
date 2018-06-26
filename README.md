@@ -13,7 +13,7 @@ open http://localhost:8000/graphql
 
 ```graphql
 
-query task($taskId: Int!, $withProject: Boolean = true) {
+query ReadTask($taskId: Int!, $withProject: Boolean = true) {
   task(id: $taskId) {
     ...taskFragment
     project @include(if: $withProject) {
@@ -22,6 +22,7 @@ query task($taskId: Int!, $withProject: Boolean = true) {
     }
   }
   anotherTask: task(id: 2) {
+    __typename
     ...taskFragment
   }
 }

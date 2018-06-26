@@ -1,8 +1,7 @@
 # Django GraphQL CRUD Demo
 
----
 
-```sh
+```bash
 pip3 install virtualenv
 source ./virtualenv/bin/activate
 pip3 install -r djserver/requirements.txt
@@ -12,18 +11,24 @@ python3 manage.py runserver
 open http://localhost:8000/graphql
 ```
 
-```json
+```graphql
 
-query task($taskId: Int) {
+query task($taskId: Int!, $withProject: Boolean = true) {
   task(id: $taskId) {
-    id
-    name
-    completed
-    project {
+    ...taskFragment
+    project @include(if: $withProject) {
       id
       name
     }
   }
+  anotherTask: task(id: 2) {
+    ...taskFragment
+  }
+}
+
+fragment taskFragment on TaskType {
+  name
+  completed
 }
 
 {

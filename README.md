@@ -37,3 +37,36 @@ fragment taskFragment on TaskType {
 }
 
 ```
+
+```graphql
+
+mutation {
+  createProject(name: "A new project") {
+		status
+    message
+    project {
+      id
+      name
+    }
+  }
+
+  updateTask(taskId: 1, projectId: 2) {
+    status
+    message
+    task {
+      id
+      name
+      project {
+        id
+        name
+      }
+    }
+  }
+
+  deleteTask(taskId: 6) {
+    status
+    message
+  }
+}
+
+```

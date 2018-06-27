@@ -104,7 +104,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 GRAPHENE = {
-    'SCHEMA': 'djserver.schema.schema'
+    'SCHEMA': 'djserver.schema.schema',
+    'MIDDLEWARE': (
+        'graphene_django.debug.DjangoDebugMiddleware',
+    ),
 }
 
 # Internationalization

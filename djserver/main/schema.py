@@ -48,3 +48,24 @@ class Query(object):
             return Task.objects.get(name=name)
 
         return None
+
+
+class CreateProjectMutation(graphene.Mutation):
+    class Input:
+        name = graphene.String(required=True)
+    
+    status = graphene.Int()
+    project = graphene.Field(ProjectType)
+
+    @staticmethod
+    def mutate(self, info, **kwargs):
+        name = kwargs.get('name', '').strip()
+        try:
+            project = Project.objects.create(name=name)
+            return CreateProjectMutation(status=200, project=project)
+        except:
+            return CreateProjectMutation(status=500, project=None)
+
+
+class Mutation(graphene.ObjectType):
+    create_project = CreateProjectMutation.Field()

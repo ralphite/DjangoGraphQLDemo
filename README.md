@@ -42,14 +42,13 @@ fragment taskFragment on TaskType {
 
 mutation {
   createProject(name: "A new project") {
-		status
+    status
     message
     project {
       id
       name
     }
   }
-
   updateTask(taskId: 1, projectId: 2) {
     status
     message
@@ -62,11 +61,11 @@ mutation {
       }
     }
   }
-
   deleteTask(taskId: 6) {
     status
     message
   }
 }
+
 
 ```
